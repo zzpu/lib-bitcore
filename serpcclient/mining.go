@@ -11,7 +11,7 @@ import (
 	"errors"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcutil"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // FutureGenerateResult is a future promise to deliver the result of a

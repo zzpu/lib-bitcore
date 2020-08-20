@@ -11,8 +11,8 @@ import (
 	"encoding/json"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 	"github.com/ltcsuite/ltcd/wire"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 	"github.com/ltcsuite/ltcutil"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // SigHashType enumerates the available signature hashing types that the

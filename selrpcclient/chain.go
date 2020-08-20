@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 	"github.com/ltcsuite/ltcd/wire"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // FutureGetBestBlockHashResult is a future promise to deliver the result of a
@@ -260,7 +260,7 @@ func (r FutureRescanBlockChainResult) Receive() (*sebtcjson.RescanBlockChanResul
 
 	recStr := string(res)
 
-	println("rpc response json-->",recStr)
+	println("rpc response json-->", recStr)
 
 	var chainInfo sebtcjson.RescanBlockChanResult
 	if err := json.Unmarshal(res, &chainInfo); err != nil {
@@ -270,7 +270,7 @@ func (r FutureRescanBlockChainResult) Receive() (*sebtcjson.RescanBlockChanResul
 }
 
 func (c *Client) RescanBlockChainAsync() FutureRescanBlockChainResult {
-	cmd := sebtcjson.NewRescanBlockChainCmd(nil,nil)
+	cmd := sebtcjson.NewRescanBlockChainCmd(nil, nil)
 	return c.sendCmd(cmd)
 }
 
@@ -284,19 +284,18 @@ func (c *Client) RescanBlockChainStartStopAsync(startHeight, stopHeight int) Fut
 	return c.sendCmd(cmd)
 }
 
-func (c *Client) RescanBlockChain() (*sebtcjson.RescanBlockChanResult,error) {
+func (c *Client) RescanBlockChain() (*sebtcjson.RescanBlockChanResult, error) {
 
 	return c.RescanBlockChainAsync().Receive()
 }
 
-func (c *Client) RescanBlockChainStart(startHeight int) (*sebtcjson.RescanBlockChanResult,error) {
+func (c *Client) RescanBlockChainStart(startHeight int) (*sebtcjson.RescanBlockChanResult, error) {
 
 	return c.RescanBlockChainStartAsync(startHeight).Receive()
 }
 
-
-func (c *Client) RescanBlockChainStartStop(startHeight, stopHeight int) (*sebtcjson.RescanBlockChanResult,error) {
-	return c.RescanBlockChainStartStopAsync(startHeight,stopHeight).Receive()
+func (c *Client) RescanBlockChainStartStop(startHeight, stopHeight int) (*sebtcjson.RescanBlockChanResult, error) {
+	return c.RescanBlockChainStartStopAsync(startHeight, stopHeight).Receive()
 }
 
 // FutureGetBlockChainInfoResult is a promise to deliver the result of a

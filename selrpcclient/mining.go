@@ -10,8 +10,8 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 	"github.com/ltcsuite/ltcutil"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // FutureGenerateResult is a future promise to deliver the result of a

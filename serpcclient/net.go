@@ -7,7 +7,7 @@ package serpcclient
 
 import (
 	"encoding/json"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // AddNodeCommand enumerates the available commands that the AddNode function

@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/prometheus/common/log"
-	"github.com/boxproject/lib-bitcore/serpcclient"
+	"github.com/zzpu/lib-bitcore/serpcclient"
 )
 
 func main() {
@@ -21,13 +21,11 @@ func main() {
 		log.Fatal(err)
 	}
 	defer client.Shutdown()
-	rt,err := client.RescanBlockChain()
+	rt, err := client.RescanBlockChain()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	log.Info(rt)
-
-
 
 }

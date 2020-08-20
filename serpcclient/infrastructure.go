@@ -14,6 +14,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"github.com/btcsuite/go-socks/socks"
+	"github.com/btcsuite/websocket"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 	"io"
 	"io/ioutil"
 	"math"
@@ -23,9 +26,6 @@ import (
 	"sync"
 	"sync/atomic"
 	"time"
-	"github.com/btcsuite/go-socks/socks"
-	"github.com/btcsuite/websocket"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 )
 
 var (
@@ -282,7 +282,7 @@ type (
 	// rawResponse is a partially-unmarshaled JSON-RPC response.  For this
 	// to be valid (according to JSON-RPC 1.0 spec), ID may not be nil.
 	rawResponse struct {
-		Result json.RawMessage   `json:"result"`
+		Result json.RawMessage     `json:"result"`
 		Error  *sebtcjson.RPCError `json:"error"`
 	}
 )
@@ -872,8 +872,6 @@ func (c *Client) sendCmd(cmd interface{}) chan *response {
 	// Marshal the command.
 	id := c.NextID()
 	marshalledJSON, err := sebtcjson.MarshalCmd(id, cmd)
-
-
 
 	if err != nil {
 		return newFutureError(err)

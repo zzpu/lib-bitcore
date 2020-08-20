@@ -2,8 +2,8 @@ package serpcclient
 
 import (
 	"encoding/json"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 type FutureOmniGetbalance chan *response

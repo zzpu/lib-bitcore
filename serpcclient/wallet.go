@@ -7,12 +7,12 @@ package serpcclient
 
 import (
 	"encoding/json"
-	"strconv"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/btcsuite/btcd/wire"
 	"github.com/btcsuite/btcutil"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
+	"strconv"
 )
 
 // *****************************
@@ -141,7 +141,7 @@ func (c *Client) ListTransactionsCount(account string, count int) ([]sebtcjson.L
 // function on the returned instance.
 //
 // See ListTransactionsCountFrom for the blocking version and more details.
-func (c *Client) ListTransactionsCountFromAsync(account string, count, from int,IncludeWatchOnly bool) FutureListTransactionsResult {
+func (c *Client) ListTransactionsCountFromAsync(account string, count, from int, IncludeWatchOnly bool) FutureListTransactionsResult {
 	cmd := sebtcjson.NewListTransactionsCmd(&account, &count, &from, &IncludeWatchOnly)
 	return c.sendCmd(cmd)
 }
@@ -150,8 +150,8 @@ func (c *Client) ListTransactionsCountFromAsync(account string, count, from int,
 // to the passed count while skipping the first 'from' transactions.
 //
 // See the ListTransactions and ListTransactionsCount functions to use defaults.
-func (c *Client) ListTransactionsCountFrom(account string, count, from int,IncludeWatchOnly bool) ([]sebtcjson.ListTransactionsResult, error) {
-	return c.ListTransactionsCountFromAsync(account, count, from,IncludeWatchOnly).Receive()
+func (c *Client) ListTransactionsCountFrom(account string, count, from int, IncludeWatchOnly bool) ([]sebtcjson.ListTransactionsResult, error) {
+	return c.ListTransactionsCountFromAsync(account, count, from, IncludeWatchOnly).Receive()
 }
 
 // FutureListUnspentResult is a future promise to deliver the result of a
@@ -2091,7 +2091,7 @@ func (r FutureImportAddressResult) Receive() error {
 //
 // See ImportAddress for the blocking version and more details.
 func (c *Client) ImportAddressAsync(address string) FutureImportAddressResult {
-	cmd := sebtcjson.NewImportAddressCmd(address, "",nil)
+	cmd := sebtcjson.NewImportAddressCmd(address, "", nil)
 	return c.sendCmd(cmd)
 }
 
@@ -2105,15 +2105,15 @@ func (c *Client) ImportAddress(address string) error {
 // returned instance.
 //
 // See ImportAddress for the blocking version and more details.
-func (c *Client) ImportAddressRescanAsync(address ,lable string, rescan bool) FutureImportAddressResult {
-	cmd := sebtcjson.NewImportAddressCmd(address,lable, &rescan)
+func (c *Client) ImportAddressRescanAsync(address, lable string, rescan bool) FutureImportAddressResult {
+	cmd := sebtcjson.NewImportAddressCmd(address, lable, &rescan)
 	return c.sendCmd(cmd)
 }
 
 // ImportAddressRescan imports the passed public address. When rescan is true,
 // the block history is scanned for transactions addressed to provided address.
-func (c *Client) ImportAddressRescan(address,lable string, rescan bool) error {
-	return c.ImportAddressRescanAsync(address, lable,rescan).Receive()
+func (c *Client) ImportAddressRescan(address, lable string, rescan bool) error {
+	return c.ImportAddressRescanAsync(address, lable, rescan).Receive()
 }
 
 // FutureImportPrivKeyResult is a future promise to deliver the result of an

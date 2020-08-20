@@ -13,8 +13,8 @@ import (
 	"fmt"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 	"github.com/ltcsuite/ltcd/wire"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 	"github.com/ltcsuite/ltcutil"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // FutureDebugLevelResult is a future promise to deliver the result of a

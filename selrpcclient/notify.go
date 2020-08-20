@@ -11,11 +11,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"time"
 	"github.com/ltcsuite/ltcd/chaincfg/chainhash"
 	"github.com/ltcsuite/ltcd/wire"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
 	"github.com/ltcsuite/ltcutil"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
+	"time"
 )
 
 var (

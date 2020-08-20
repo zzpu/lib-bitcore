@@ -8,7 +8,7 @@ package selrpcclient
 import (
 	"encoding/json"
 	"errors"
-	"github.com/boxproject/lib-bitcore/sebtcjson"
+	"github.com/zzpu/lib-bitcore/sebtcjson"
 )
 
 // FutureRawResult is a future promise to deliver the result of a RawRequest RPC
